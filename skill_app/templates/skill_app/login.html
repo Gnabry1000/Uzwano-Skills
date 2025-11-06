@@ -4,6 +4,21 @@
 
 
 {% block body %}
+
+<header class="bg-white shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold">UZ</div>
+        <span class="font-semibold text-lg">Home</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a class="hidden md:inline-block px-4 py-2 rounded-md text-sm border" href="/login/">Log in</a>
+        <a class="bg-orange-500 text-white px-4 py-2 rounded-md text-sm" href="/register">Get started</a>
+      </div>
+    </div>
+  </header>
+
 <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-white">
   <div class="bg-white shadow-xl rounded-2xl p-10 w-full max-w-md border border-orange-100">
     

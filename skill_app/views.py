@@ -39,10 +39,10 @@ def login_view(request):
         if check_password(password, user.password):
             request.session['user_email'] = user.email
             messages.success(request, f"Welcome back, {user.name}!")
-            return redirect('dashboard')  # ✅ Go to the personalized page
+            return redirect('dashboard')
         else:
             messages.error(request, "Invalid password.")
-            return redirect('login')  # ✅ Stay on login page for retry
+            return redirect('login')
 
     return render(request, 'skill_app/login.html')
 
@@ -73,9 +73,9 @@ def dashboard(request):
             )
             messages.success(request, f"Skill '{title}' added successfully!")
 
-    # Ads by other users
+ 
     other_ads = SkillAd.objects.exclude(user=user)
-    # Ads by current user
+ 
     my_ads = SkillAd.objects.filter(user=user)
 
     return render(request, 'skill_app/dashboard.html', {
@@ -88,3 +88,25 @@ def logout_view(request):
     request.session.flush()
     messages.info(request, "You’ve been logged out.")
     return redirect('login')
+
+def how_it_works(request):
+    return render(request, 'skill_app/how_it_works.html')
+
+def pricing(request):
+    return render(request, 'skill_app/pricing.html')
+
+def tutor_guide(request):
+    return render(request, 'skill_app/tutor_guide.html')
+
+def contact(request):
+    if request.method == 'POST':
+        messages.success(request, "Thank you for contacting us! We'll get back to you soon.")
+    return render(request, 'skill_app/contact.html')
+
+def privacy(request):
+    return render(request, 'skill_app/privacy.html')
+
+def terms(request):
+    return render(request, 'skill_app/terms.html')
+
+
